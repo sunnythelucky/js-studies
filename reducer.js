@@ -38,3 +38,14 @@ addn([constant(3), constant(7), constant(11), five, nine]);
 const addn = (fns) => fns.reduce((bigFn, fn) => () => add2(bigFn, fn))();
 
 addn([constant(3), constant(7), constant(11), five, nine]);
+
+//get uniq numbers
+
+var numbers = [5, 2, 1, 8, 5, 4, 9, 6, 7, 1, 3, 6, 5, 4, 7, 12, 13, 165, 18];
+
+numbers.reduce((newList, num) => {
+	if (!newList.includes(num)) {
+		return [...newList, num];
+	}
+	return newList;
+}, []);
