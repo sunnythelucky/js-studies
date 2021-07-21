@@ -1,3 +1,6 @@
+("use strict");
+// Recursion Exercise 1
+
 function countVowels(str) {
 	if (str.length === 0) return 0;
 	var first = isVowel(str[0]) ? 1 : 0;
@@ -8,13 +11,24 @@ const isVowel = (char) => ["a", "e", "i", "o", "u"].includes(char);
 
 countVowels("The quick brown fox jumps over the lazy dog");
 
-("use strict");
+//Recursion with trampoline
+
+function countVowels(str) {
+	if (str.length === 0) return 0;
+	var first = isVowel(str[0]) ? 1 : 0;
+	return function f() {
+		return first + countVowels(str.slice(1));
+	};
+}
+
+// Recursion Exercise 2
 
 function isPalindrome(str) {
 	if (str.length <= 1) return true;
-	var first = str[0];
-	var last = str[str.length - 1];
-	if (first === last) {
+	// var first = str[0];
+	// var last = str[str.length - 1];
+
+	if (str[0] === str[str.length - 1]) {
 		return isPalindrome(str.substring(1, str.length - 1));
 	}
 	return false;
