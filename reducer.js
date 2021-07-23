@@ -62,3 +62,30 @@ addn3(
 		//wrap with function
 		.map(constant)
 );
+
+const summingReducer = (acc, n) => acc + n;
+
+[2, 3, 5].reduce(summingReducer);
+
+const map = (fn, arr) =>
+	arr.reduce((acc, item) => {
+		return acc.concat(fn(item));
+	}, []);
+
+var f = (x) => x + 1;
+
+map(f, [2, 3, 4]);
+
+const filter = (fn, arr) =>
+	arr.reduce((newArr, item) => {
+		return fn(item) ? newArr.concat([item]) : newArr;
+	}, []);
+
+var g = (g) => g.length > 8;
+var hobbies = ["skating", "singing", "skiing", "skateboarding", "climbing", "trekking", "skydiving"];
+
+filter(g, hobbies);
+
+[].concat(["hello"]);
+
+
